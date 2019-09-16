@@ -1,11 +1,10 @@
 pipeline{
-    agent {
-        label "agent any"
-    }
-
+    agent any
     stages {
         stage("build") {
-            bat './gradlew clean build'
+            steps {
+                bat './gradlew clean build'
+            }
         }
     }
 }
