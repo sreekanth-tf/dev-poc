@@ -6,5 +6,10 @@ pipeline{
                 bat './gradlew clean build'
             }
         }
+        stage('SonarQube analysis') {
+            steps {
+                sh './gradlew sonarqube'
+            }
+        }
     }
 }
