@@ -16,7 +16,6 @@ repositories {
 }
 
 jacoco {
-    toolVersion = "0.7.9"
     reportsDir = file("$buildDir/customJacocoReportDir")
 }
 
