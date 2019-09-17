@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id 'war'
     id 'org.sonarqube' version '2.7.1'
+    id 'jacoco' version '0.7.9'
 }
 
 group = 'com.tf'
@@ -12,6 +13,19 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
+}
+
+jacoco {
+    toolVersion = "0.7.9"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
 }
 
 dependencies {
