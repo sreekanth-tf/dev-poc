@@ -15,16 +15,6 @@ repositories {
 	mavenCentral()
 }
 
-jacoco {
-    reportsDir = file("$buildDir/customJacocoReportDir")
-}
-
-jacocoTestReport {
-    reports {
-        html.destination file("${buildDir}/jacocoHtml")
-    }
-}
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
