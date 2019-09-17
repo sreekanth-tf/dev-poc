@@ -8,9 +8,9 @@ public class PocTestController {
 
     @GetMapping
     public String pocHome() {
-       /* //creating divide by zero issue for sonarqube
+        //creating divide by zero issue for sonarqube
         int line = 0;
-        System.out.println(10/line);*/
+        System.out.println(10/line);
         return "POC Home";
     }
 }
