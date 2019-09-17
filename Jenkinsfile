@@ -1,5 +1,8 @@
-pipeline{
+pipeline {
     agent any
+    options {
+        buildDiscarder(logRotator(numberToKeepStr: '5'))
+    }
     stages {
         stage("build") {
             steps {
@@ -25,10 +28,10 @@ pipeline{
         stage('Slack Message') {
             steps {
                 slackSend channel: '#devops',
-                color: 'good',
-                teamDomain: 'devops-s1t9307',
-                tokenCredentialId: 'slack-token',
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
+                        color: 'good',
+                        teamDomain: 'devops-s1t9307',
+                        tokenCredentialId: 'slack-token',
+                        message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }
         }
     }
